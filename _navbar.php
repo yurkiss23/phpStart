@@ -46,16 +46,16 @@
             </li>
         </ul>
 
-        <ul class="navbar-nav align-content-center mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/hw-step.php">
-                    <i class="fa fa-envelope-o">
-                        <span class="badge badge-danger">2</span>
-                    </i>
-                    HW-STEP
-                </a>
-            </li>
-        </ul>
+<!--        <ul class="navbar-nav align-content-center mr-auto">-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="/hw-step.php">-->
+<!--                    <i class="fa fa-envelope-o">-->
+<!--                        <span class="badge badge-danger">2</span>-->
+<!--                    </i>-->
+<!--                    HW-STEP-->
+<!--                </a>-->
+<!--            </li>-->
+<!--        </ul>-->
 
         <ul class="navbar-nav ">
             <li class="nav-item">
