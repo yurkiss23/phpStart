@@ -15,8 +15,8 @@
         <div class="offset-md-3 col-md-6">
             <h3 class="text-center">Профіль користувача</h3>
             <?php
-            if (isset($_GET["submit"])) {
-                echo 'You are welcome, ' . $_GET["email"] . '!';
+            if (isset($_POST["submit"])) {
+                echo 'You are welcome, ' . $_POST["email"] . '!';
             } else {
                 echo 'No data were received!<br/>';
             }
