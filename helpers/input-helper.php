@@ -2,18 +2,17 @@
 function create_input($name, $label, $type, $errors)
 {
     $value = '';
-    $isInvalid='';
-    $isError='';
-    if ($_SERVER["REQUEST_METHOD"] == "POST")
-    {
+    $isInvalid = '';
+    $isError = false;
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //        $value = '';
-        $isValue=isset($_POST[$name]) and !empty($_POST[$name]);
+        $isValue = isset($_POST[$name]) and !empty($_POST[$name]);
         if ($isValue)
             $value = $_POST[$name];
 
 //        $isInvalid='';
-        $isError=isset($errors[$name]) and !empty($errors[$name]);
-        $isInvalid=$isError?'is-invalid':'';
+        $isError = isset($errors[$name]) and !empty($errors[$name]);
+        $isInvalid = $isError ? 'is-invalid' : '';
 
     }
     print <<<END
@@ -25,13 +24,15 @@ function create_input($name, $label, $type, $errors)
                            id="$name"
                            value="$value"/>
                 
-END;
-if($isError)
-print <<<ERROR
-    <div class="invalid-feedback d-block">
-        $errors[$name]
-    </div>
-ERROR;
+    END;
+
+    if ($isError)
+        print <<<ERROR
+            <div class="invalid-feedback d-block">
+                $errors[$name]
+            </div>
+        ERROR;
+
     echo '</div>';
 }
 

@@ -24,13 +24,14 @@ include_once "con_db.php";
         <thead>
         <tr>
             <th scope="col">#</th>
+            <th scope="col">Image</th>
             <th scope="col">Email</th>
             <th scope="col">Phone</th>
         </tr>
         </thead>
         <tbody>
         <?php
-        $sth = $dbh->prepare("SELECT Id, Email, Phone FROM `tbl_users`");
+        $sth = $dbh->prepare("SELECT Id, Email, Phone, Image FROM `tbl_users`");
         $sth->execute();
 
         while($result = $sth->fetch(PDO::FETCH_ASSOC))
@@ -38,6 +39,7 @@ include_once "con_db.php";
             echo '
         <tr>
             <th scope="row">'.$result["Id"].'</th>
+            <td><<img src="'.$result["Image"].'" width="100"/></td>
             <td>'.$result["Email"].'</td>
             <td>'.$result["Phone"].'</td>
         </tr>
