@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,11 +19,10 @@
         <div class="offset-md-3 col-md-6">
             <h3 class="text-center">Профіль користувача</h3>
             <?php
-            if (isset($_POST["submit"])) {
-                echo 'You are welcome, ' . $_POST["email"] . '!';
-            } else {
-                echo 'No data were received!<br/>';
-            }
+            echo '<div class="text-center">You are welcome, '.$_SESSION['username'].'!</div>';
+            echo '<div class="text-center"><img src="';
+            echo $_SESSION['userimg'];
+            echo '" width="300"/></div>';
             ?>
         </div>
     </div>

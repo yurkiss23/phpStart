@@ -1,4 +1,5 @@
 <?php
+session_start();
 $errors=array();
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $email='';
@@ -14,10 +15,21 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $errors['password']="Поле є обов'язковим";
 
     if(count($errors)==0){
-        header("location:/UserProfile.php");
-        exit;
+        include_once "con_db.php";
+        $sql="SELECT Id, Image FROM `tbl_users` WHERE Email='$email' AND Password='$password'";
+        $con=$dbh->query($sql);
+        if($con->rowCount()!=0){
+            $res=$con->fetch(PDO::FETCH_ASSOC);
+            $_SESSION['username']=$email;
+            $_SESSION['userpass']=$password;
+            $_SESSION['userimg']=$res['Image'];
+            header("location:/UserProfile.php");
+            exit;
+        }
+        else{
+            $errors['all']= 'Користувача не знайдено';
+        }
     }
-
 }
 ?>
 
@@ -50,10 +62,9 @@ include "helpers/input-helper.php";
                 }
                 ?>
                 <form method="post" enctype="multipart/form-data">
-
-
                     <?php create_input("email", "Email", "email", $errors); ?>
                     <?php create_input("password", "Пароль", "password", $errors); ?>
+                    
 <!--                    <div class="form-group">-->
 <!--                        <input type="text"-->
 <!--                               class="form-control"-->
