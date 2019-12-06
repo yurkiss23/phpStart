@@ -18,12 +18,19 @@ session_start();
     <div class="row mt-3">
         <div class="offset-md-3 col-md-6">
             <h3 class="text-center">Профіль користувача</h3>
-            <?php
-            echo '<div class="text-center">You are welcome, '.$_SESSION['username'].'!</div>';
-            echo '<div class="text-center"><img src="';
-            echo $_SESSION['userimg'];
-            echo '" width="300"/></div>';
-            ?>
+            <form method="get">
+                <div class="form-group">
+                    <?php
+                    echo '<div class="text-center">You are welcome, '.$_SESSION['username'].'!</div>';
+                    echo '<div class="text-center"><img src="';
+                    echo $_SESSION['userimg'];
+                    echo '" width="300"/></div>';
+                    ?>
+                </div>
+                <div class="form-group text-center">
+                    <input type="submit" class="btnSubmit" value="Logout" name="submitOut"/>
+                </div>
+            </form>
         </div>
     </div>
 </div>

@@ -78,7 +78,9 @@ include "helpers/input-helper.php";
                     <div class="form-group">
                         <input type="submit" class="btnSubmit" value="Login" name="submit"/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group text-center">
+                        <a href="forgotPass.php" class="ForgetPwd">Забули пароль?</a>
+                        <span> | </span>
                         <a href="register.php" class="ForgetPwd">Реєстрація</a>
                     </div>
                 </form>
