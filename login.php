@@ -16,12 +16,15 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     if(count($errors)==0){
         include_once "con_db.php";
-        $sql="SELECT Id, Image FROM `tbl_users` WHERE Email='$email' AND Password='$password'";
+        $sql="SELECT Id, UserName, Phone, Image FROM `tbl_users` WHERE Email='$email' AND Password='$password'";
         $con=$dbh->query($sql);
         if($con->rowCount()!=0){
             $res=$con->fetch(PDO::FETCH_ASSOC);
-            $_SESSION['username']=$email;
+            $_SESSION['userid']=$res['Id'];
+            $_SESSION['username']=$res['UserName'];
+            $_SESSION['usermail']=$email;
             $_SESSION['userpass']=$password;
+            $_SESSION['userphone']=$res['Phone'];
             $_SESSION['userimg']=$res['Image'];
             header("location:/UserProfile.php");
             exit;
